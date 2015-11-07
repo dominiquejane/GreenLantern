@@ -6,9 +6,67 @@
   <title></title>
   <link rel="stylesheet" href="">
 </head>
-<body>
+<body ng-controller="giphyCtrl">
 
 <h1>Giphy is Life</h1> 
 <h2>h2 header</h2> 
+
+<select ng-model="types">
+	<option value="7/11s">7/11</option>
+	<option value="restaurant">Restaurant</option>
+	<option value="strip-clubs">Strip-Clubs</option>
+	<option value="zoos">Zoo</option>
+	<option value="bars">Bars</option>
+	<option value="deli">Deli</option>
+	<option value="barbers/salon">Barber/Salon</option>
+	<option value="time-machines">Time-machines</option>
+	<option value="prison">Prisons</option>
+</select>
+
+<input ng-model="biz"/>
+<button ng-click="postBiz()">post stuff</button>
+
+<button ng-click="getBiz()">get stuff</button>
+<ul ng-repeat="bizzies in biznesses | filter: types">
+	 {{bizzies.Type}} {{bizzies.type}} : {{bizzies.Name}} {{bizzies.name}}
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  	<script src="js/app.js"></script>
+  	<script src="js/controller.js"></script>
+  	<script src="js/service.js"></script>
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html ng-app="giphy">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+
+<body ng-controller="giphyCtrl">
+	<h1>{{test}}</h1>
+
+	<form ng-submit="addBiz()">
+		<select ng-model="biz.type" ng-options="type for type in types"></select>
+		<button ng-click="postBiz()">post stuff</button>
+		<input type="text" ng-model="biz.name" placeholder="Type the bizname here"/>
+		 <button ng-click="getBiz()">get stuff</button>
+	</form>
+
+	<div>
+		<h1>Biznasses</h1>
+		<ul>
+			<li ng-repeat="biz in biznesses">{{biz.name}} {{biz.Name}} -- {{biz.type}} {{biz.Type}}</li>
+		</ul>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/service.js"></script>
+</body>
+</html> -->
